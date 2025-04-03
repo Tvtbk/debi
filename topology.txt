@@ -1,0 +1,9 @@
+ISP 	ens18 	dhcp 	->	inet
+	ens19	static  ->	hq-rtr	172.16.4.1/28
+	ens20	static	->	br-rtr	172.16.5.1/28
+
+hq-rtr  ens18 	static	->	isp	172.16.4.2/28
+	ens19	dhcp	->	hq-sw	192.168.100.0/24
+
+br-rtr	ens18	static 	->	isp	172.16.5.2/28
+	ens19	dhcp	->	br-sw	192.168.200.0/27
