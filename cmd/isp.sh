@@ -30,3 +30,7 @@ systemctl enable --now iptables
 
 echo nat!
 
+# 1.11
+timedatectl set-timezone Europe/Moscow
+timedatectl set-time "2024-01-01 00:00:00"
+

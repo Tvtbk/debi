@@ -58,3 +58,7 @@ systemctl restart frr
 
 # Проверка внесённых изменений
 # vtysh -c 'show running-config'
+
+# 1.11
+timedatectl set-timezone Europe/Moscow
+timedatectl set-time "2024-01-01 00:00:00"

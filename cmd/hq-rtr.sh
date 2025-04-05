@@ -109,3 +109,10 @@ echo \
 
 sed -i 's/^DHCPDARGS=$/DHCPDARGS=ens19/' /etc/sysconfig/dhcpd
 systemctl enable --now dhcpd
+
+# 1.11
+timedatectl set-timezone Europe/Moscow
+timedatectl set-time "2024-01-01 00:00:00"
+
+# Проверка
+# timedatectl

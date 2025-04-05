@@ -50,3 +50,7 @@ echo -e 'zone "au-team.irpo" {\n\ttype master;\n\tfile "master/au-team.db";\n};'
 
 mkdir /etc/bind/zone/master
 chown root:named /etc/bind/zone/master
+
+# 1.11
+timedatectl set-timezone Europe/Moscow
+timedatectl set-time "2024-01-01 00:00:00"
