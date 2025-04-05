@@ -5,7 +5,6 @@ apt-get install vim mcedit iptables -y
 
 hostnamectl set-hostname isp.au-team.irpo; exec bash
 
-
 cd /etc/net/ifaces/ens19
 
 echo 'DISABLED=no' > options
