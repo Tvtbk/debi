@@ -98,21 +98,29 @@ systemctl restart frr
 apt-get install dhcp-server -y
 
 echo \
-'subnet 192.168.100.64 netmask 255.255.255.240 {
-  range 192.168.100.66 192.168.100.78;
-  option domain-name-servers 192.168.100.2;
-  option domain-name "au-team.irpo";
-  option routers 192.168.100.65;
-  default-lease-time 600;
-  max-lease-time 7200;
-}' > /etc/dhcp/dhcpd.conf
+'ddns-update-style none;
+subnet 192.168.100.0 netmask 255.255.255.240 { #сеть и маска подсети
+         option routers                  192.168.100.1;
+         option subnet-mask              255.255.255.240;
+         option nis-domain               "domain.org";
+         option domain-name              "domain.org";
+         option domain-name-servers      8.8.8.8;
+
+         range dynamic-bootp 192.168.100.2 192.168.100.14;
+
+         default-lease-time 21600;
+         max-lease-time 43200;
+ }' > /etc/dhcp/dhcpd.conf
 
 sed -i 's/^DHCPDARGS=$/DHCPDARGS=ens19/' /etc/sysconfig/dhcpd
 systemctl enable --now dhcpd
 
+# Проверка синтаксиса конфиг файла
+# dhcpd -cf /etc/dhcp/dhcpd.conf
+
 # 1.11
 timedatectl set-timezone Europe/Moscow
-timedatectl set-time "2024-01-01 00:00:00"
+# timedatectl set-time "2024-01-01 00:00:00"
 
 # Проверка
 # timedatectl
