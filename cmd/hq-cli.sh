@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 hostnamectl set-hostname hq-cli.au-team.irpo; exec bash
 
 # 1.11

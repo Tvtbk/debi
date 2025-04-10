@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 hostnamectl set-hostname hq-rtr.au-team.irpo; exec bash
 
 cd /etc/net/ifaces/ens18

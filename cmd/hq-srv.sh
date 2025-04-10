@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 hostnamectl set-hostname hq-srv.au-team.irpo; exec bash
 
 useradd sshuser -u 1010 -U
